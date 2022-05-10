@@ -2,6 +2,7 @@
 //Console.WriteLine("Hello, World!");
 EmployeManager employeManager = new EmployeManager();
 
+
 bool contunue = true;
 List<string> stringList = new List<string>() { };
 
@@ -17,14 +18,14 @@ while (contunue)
 
 void AddStringToList()
 {
-    if(stringList.Count % 3 == 1)
+    if(stringList.Count % 3 == 0)
     {
         Console.WriteLine("First Name, or type print to get data");
         string first = Console.ReadLine();
         if (first != "print") stringList.Add(first);
         else employeManager.PrintInfo();
     }
-    else if (stringList.Count % 3 == 2)
+    else if (stringList.Count % 3 == 1)
     {
         Console.WriteLine("Second Name, or type print to get data ");
         string second = Console.ReadLine();
@@ -32,26 +33,26 @@ void AddStringToList()
         if (second != "print") stringList.Add(second);
         else employeManager.PrintInfo();
     }
-    else if (stringList.Count % 3 == 3)
+    else if (stringList.Count % 3 == 2)
     {
         Console.WriteLine("Wage, or type print to get data ");
         string wage = Console.ReadLine();
-        if (wage != "print") stringList.Add(wage);
-        else
+        if (wage != "print")
         {
-            employeManager.PrintInfo();
             stringList.Add(wage);
-            Employe temp = CreateStaff();
+            
+            Employe temp = SaveStaff();
             employeManager.AddInfo(temp);
         }
+        else employeManager.PrintInfo();
     }
 }
 
-Employe CreateStaff()
+Employe SaveStaff()
 {
-    string first = stringList[stringList.Count - 2];
-    string second = stringList[stringList.Count - 1]; 
-    string wage = stringList[stringList.Count];
+    string first = stringList[stringList.Count - 3];
+    string second = stringList[stringList.Count - 2]; 
+    string wage = stringList[stringList.Count - 1];
     int didgit = Int32.Parse(wage);
     Employe temp = new Employe(first, second, didgit);
     return temp;
