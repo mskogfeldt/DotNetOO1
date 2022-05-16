@@ -1,22 +1,23 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Console.WriteLine("Hello, World!");
-EmployeManager employeManager = new EmployeManager();
+//EmployeManager employeManager = new EmployeManager();
 
 
 bool contunue = true;
 List<string> stringList = new List<string>() { };
+List<int> agesOfCustomers = new List<int>() { };
 
 //Console.WriteLine("To exit press escape!");
-Console.WriteLine("Employe System!");
+Console.WriteLine("Wellcome To MaetsFlix!");
 
 while (contunue)
 {
-    AddStringToList();
+    Bookingsystem();
 
 
 }
 
-void AddStringToList()
+void Bookingsystem()
 {
     if(stringList.Count % 3 == 0)
     {
